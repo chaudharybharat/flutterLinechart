@@ -6,10 +6,11 @@ import 'package:draw_graph/models/feature.dart';
 import 'package:draw_graph/widgets/lineGraph.dart';
 
 class LineGraph extends StatefulWidget {
-  final List<Feature> features;
   final Size size;
   final List<String> labelX;
   final List<String> labelY;
+  final List<int> list;
+
   final String fontFamily;
   final Color graphColor;
   final Color backgroudColor;
@@ -19,9 +20,9 @@ class LineGraph extends StatefulWidget {
   final double descriptionHeight;
 
   LineGraph({
-    this.features,
     this.size,
     this.labelX,
+    this.list,
     this.labelY,
     this.fontFamily,
     this.backgroudColor = Colors.grey,
@@ -37,15 +38,12 @@ class LineGraph extends StatefulWidget {
 }
 
 class _LineGraphState extends State<LineGraph> {
-  List<Feature> features;
   bool tapped = false;
 
   @override
   Widget build(BuildContext context) {
     setState(() {
-      if (!tapped) {
-        features = widget.features;
-      }
+      if (!tapped) {}
     });
     return Container(
       color: widget.backgroudColor,
@@ -83,21 +81,18 @@ class _LineGraphState extends State<LineGraph> {
     return CustomPaint(
       size: size,
       painter: LineGraphPainter(
-        features: features,
         labelX: widget.labelX,
         labelY: widget.labelY,
         fontFamily: widget.fontFamily,
         graphColor: widget.graphColor,
         graphOpacity: widget.graphOpacity,
+        list: widget.list,
       ),
     );
   }
 
   Widget getFeautures() {
     List<Widget> featureDescriptions = [];
-    for (int i = 0; i < features.length; i++) {
-      featureDescriptions.add(getDescription(features[i]));
-    }
 
     return ListView(
       scrollDirection:
@@ -135,7 +130,6 @@ class _LineGraphState extends State<LineGraph> {
         onTap: () {
           setState(() {
             if (!tapped) {
-              features = [feature];
               tapped = true;
             } else {
               tapped = false;

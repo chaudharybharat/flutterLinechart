@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Feature {
   String title;
   Color color;
-  List<double> data;
+  List<int> data;
 
   Feature({
     this.title = "",

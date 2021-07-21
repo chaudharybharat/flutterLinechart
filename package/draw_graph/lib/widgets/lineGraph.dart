@@ -4,41 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:draw_graph/models/feature.dart';
 
 class LineGraphPainter extends CustomPainter {
-  final List<Feature> features;
   final List<String> labelX;
   final List<String> labelY;
+  final List<int> list;
   final String fontFamily;
   final Color graphColor;
   final double graphOpacity;
-
   LineGraphPainter({
-    this.features,
     this.labelX,
     this.labelY,
+    this.list,
     this.fontFamily,
     this.graphColor,
     this.graphOpacity,
   });
-  List<int> list = [];
 
   @override
   void paint(Canvas canvas, Size size) {
-    list.add(50);
-    list.add(20);
-    list.add(30);
-    list.add(40);
-    list.add(50);
-    list.add(60);
-    list.add(70);
-    list.add(80);
-    list.add(90);
-    list.add(140);
-    list.add(140);
-    list.add(140);
-    list.add(140);
-    list.add(140);
-    list.add(140);
-
     double _offsetX = 1;
     for (int i = 0; i < labelY.length; i++) {
       if (labelY[i].length > _offsetX) {

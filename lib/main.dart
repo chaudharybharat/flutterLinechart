@@ -50,14 +50,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Feature> features = [
-    Feature(
-      title: "Drink Water",
-      color: Colors.red,
-      data: [0.2, 1, 0.2, 0.3, 0.2, 0.4],
-    ),
-  ];
-
+  List<int> list = [20, 100, 60, 60, 50, 10];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
           children: [
             LineGraph(
-              features: features,
+              list: list,
               size: Size(MediaQuery.of(context).size.width, 200),
               labelX: [
                 'Day 1',
@@ -87,7 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
               graphColor: Colors.white,
               graphOpacity: 0,
               backgroudColor: Colors.red.withOpacity(0.2),
-              //backgroudColor: Colors.red,
               fontFamily: "GinzaNarrow",
               verticalFeatureDirection: false,
               descriptionHeight: 130,
