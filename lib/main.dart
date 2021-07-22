@@ -50,7 +50,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<int> list = [20, 100, 60, 60, 50, 10];
+  List<int> list = [10, 20, 5, 25, 50, 40];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 'Day 5',
                 'Day 5',
               ],
-              labelY: ['80-', '85-', '90-', '95-', '100-'],
+              labelY: ['0', '10', '20', '30', '40', '50'],
               showDescription: false,
               graphColor: Colors.white,
               graphOpacity: 0,

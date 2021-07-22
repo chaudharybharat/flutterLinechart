@@ -239,9 +239,14 @@ class LineGraphPainter extends CustomPainter {
     final pointMode = PointMode.points;
 
     for (int i = 0; i < list.length; i++) {
+      print("=cell.height===${cell.height}==");
+      int labelYGab = 10;
+      double value = cell.height / labelYGab;
+      print("=value===${value}==");
+      print("=last===${((list[i] * value) + marginBottom)}==");
       final points = [
         Offset(margin.width + i * cell.width,
-            graph.height - (list[i] + marginBottom))
+            graph.height - ((list[i] * value) + marginBottom))
       ];
 
       final paint = Paint()
@@ -249,9 +254,10 @@ class LineGraphPainter extends CustomPainter {
         ..strokeWidth = 6
         ..strokeCap = StrokeCap.round;
       canvas.drawPoints(pointMode, points, paint);
+
       linePath.lineTo(
         margin.width + i * cell.width,
-        graph.height - (list[i] + marginBottom),
+        graph.height - ((list[i] * value) + marginBottom),
       );
     }
 
